@@ -18,9 +18,9 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/sms?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: Vi1279_@2004
-      PORT: 9090
+      PORT: 10000
     ports:
-      - "9090:9090"
+      - "10000:10000"
     volumes:
       - ./target:/app/target
 

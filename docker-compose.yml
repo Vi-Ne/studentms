@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: studentms-postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: Vi1279_@2004
+      POSTGRES_DB: sms
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  app:
+    container_name: studentms-app
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/sms
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Vi1279_@2004
+      PORT: 10000
+    ports:
+      - "10000:10000"
+
+volumes:
+  postgres-data:
